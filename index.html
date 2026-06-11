@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GB Abhilash — AI Researcher & Python Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">GB<span class="accent">.</span></span>
+      <button class="burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span> Available for roles — 16–20 LPA target
+      </div>
+      <h1 class="hero-name">GB Abhilash</h1>
+      <div class="hero-roles">
+        <span id="typed-role"></span><span class="cursor">|</span>
+      </div>
+      <p class="hero-summary">
+        Published AI researcher &amp; Python developer @ PES University Bangalore.<br />
+        Co-authored a peer-reviewed Deep Learning paper in <em>MethodsX (Elsevier, 2025)</em>,<br />
+        indexed on PubMed — National Library of Medicine.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">99.3%</span>
+          <span class="stat-label">ML model accuracy</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num">1</span>
+          <span class="stat-label">Published paper (PubMed)</span>
+        </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Production AI systems</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/40395929" target="_blank" class="btn-ghost">PubMed Paper ↗</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll ↓</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-label">/ ABOUT</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>I build AI that <span class="highlight">genuinely helps people.</span></h2>
+          <p>
+            MCA student at PES University Bangalore with a rare combination: published research credentials and working production systems. My final-year BCA project became a peer-reviewed Elsevier paper. My agriculture AI system doesn't just predict — it explains <em>why</em> using SHAP charts, so farmers understand the recommendation.
+          </p>
+          <p>
+            Currently building <strong>Saathi</strong> — an always-on AI voice companion designed for Indian acoustic environments, from toddlers to grandparents, ages 6 to 60.
+          </p>
+          <div class="about-links">
+            <a href="mailto:gbabhi125@gmail.com">gbabhi125@gmail.com</a>
+            <span>·</span>
+            <a href="tel:8792231251">+91 8792231251</a>
+            <span>·</span>
+            <span>Mysore / Bangalore, KA</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="acard-inner">
+            <div class="acard-avatar">GB</div>
+            <div class="acard-tags">
+              <span class="tag tag-green">HackWithInfy 2026</span>
+              <span class="tag tag-blue">INF-A59446096</span>
+              <span class="tag tag-purple">MCA 2024–26</span>
+              <span class="tag tag-orange">Open to work</span>
+            </div>
+            <div class="acard-stack">
+              <div class="stack-row">
+                <span class="stack-icon">🐍</span><span>Python (Advanced)</span>
+              </div>
+              <div class="stack-row">
+                <span class="stack-icon">🧠</span><span>TensorFlow · Scikit-learn</span>
+              </div>
+              <div class="stack-row">
+                <span class="stack-icon">⚡</span><span>Flask · FastAPI · React</span>
+              </div>
+              <div class="stack-row">
+                <span class="stack-icon">🔗</span><span>LangChain · ChromaDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="section section-dark">
+    <div class="container">
+      <div class="section-label light">/ RESEARCH</div>
+      <h2 class="section-title light">Published Work</h2>
+      <div class="research-card">
+        <div class="research-badge">Peer-Reviewed · Elsevier · PubMed Indexed</div>
+        <h3 class="research-title">Parkinson's Disease Detection using InceptionV3: A Deep Learning Approach</h3>
+        <div class="research-meta">
+          <span>MethodsX, Elsevier</span>
+          <span class="sep">|</span>
+          <span>Volume 14, April 2025</span>
+          <span class="sep">|</span>
+          <span>DOI: 10.1016/j.mex.2025.103333</span>
+        </div>
+        <div class="research-ids">
+          <code>PMID: 40395929</code>
+          <code>PMCID: PMC12090310</code>
+        </div>
+        <ul class="research-points">
+          <li>Developed a deep learning model using InceptionV3 architecture for early Parkinson's Detection</li>
+          <li>Paper indexed in PubMed — National Library of Medicine, United States</li>
+          <li>Co-authors: Pallavi M Shanthappa, Madhwesh Bayari, GB Abhilash, KV Gokul, PJ Ashish</li>
+        </ul>
+        <a class="research-link" href="https://pubmed.ncbi.nlm.nih.gov/40395929" target="_blank">
+          View on PubMed ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-label">/ PROJECTS</div>
+      <h2 class="section-title">What I've Built</h2>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card featured">
+          <div class="project-year">2025</div>
+          <div class="project-status live">Production</div>
+          <h3>AI-Powered Smart Agriculture Decision Support System</h3>
+          <p class="project-desc">
+            Intelligent agriculture platform with 4 AI prediction modules — crop failure risk, soil health analysis, crop rotation recommendation, and optimal harvest time prediction. Built with SHAP explainability so farmers understand <em>why</em> the AI made each recommendation.
+          </p>
+          <div class="project-highlights">
+            <div class="ph">
+              <span class="ph-num">99.3%</span>
+              <span class="ph-label">ML Accuracy</span>
+            </div>
+            <div class="ph">
+              <span class="ph-num">3</span>
+              <span class="ph-label">ML Models</span>
+            </div>
+            <div class="ph">
+              <span class="ph-num">4</span>
+              <span class="ph-label">API Endpoints</span>
+            </div>
+          </div>
+          <div class="project-stack">
+            <span>Python</span><span>Flask</span><span>React</span><span>Scikit-learn</span><span>ChromaDB</span><span>SHAP</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-year">2025 – Present</div>
+          <div class="project-status wip">In Development</div>
+          <h3>Saathi — Always-On AI Voice Companion</h3>
+          <p class="project-desc">
+            A Jarvis-level AI companion that activates on voice wake word 'Saathi'. Runs silently in background, zero button presses. Implements long-term emotional memory via ChromaDB vector DB. Custom wake word engine trained for Indian acoustic environments — traffic noise, pressure cookers, fans.
+          </p>
+          <ul class="project-features">
+            <li>OS-level integration: controls volume, opens apps, takes screenshots</li>
+            <li>Designed for ages 6–60, auto-adapts tone &amp; language by user profile</li>
+            <li>Fetches verified news entirely by voice</li>
+          </ul>
+          <div class="project-stack">
+            <span>Python</span><span>Faster-Whisper</span><span>LangChain</span><span>ChromaDB</span><span>Flask</span><span>Claude AI API</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-label light">/ SKILLS</div>
+      <h2 class="section-title light">Technical Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="sg-label">Languages</div>
+          <div class="sg-items">
+            <span class="skill-pill pill-yellow">Python (Advanced)</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">HTML</span>
+            <span class="skill-pill">CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">AI / ML</div>
+          <div class="sg-items">
+            <span class="skill-pill pill-green">Scikit-learn</span>
+            <span class="skill-pill pill-green">TensorFlow</span>
+            <span class="skill-pill pill-green">LangChain</span>
+            <span class="skill-pill pill-green">ChromaDB</span>
+            <span class="skill-pill">Pandas</span>
+            <span class="skill-pill">NumPy</span>
+            <span class="skill-pill">SHAP</span>
+            <span class="skill-pill">Faster-Whisper</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Backend</div>
+          <div class="sg-items">
+            <span class="skill-pill pill-blue">Flask</span>
+            <span class="skill-pill pill-blue">FastAPI</span>
+            <span class="skill-pill">REST API Design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Frontend</div>
+          <div class="sg-items">
+            <span class="skill-pill pill-purple">React.js</span>
+            <span class="skill-pill">Bootstrap</span>
+            <span class="skill-pill">Chart.js</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Databases</div>
+          <div class="sg-items">
+            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">ChromaDB (Vector DB)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-label">Tools</div>
+          <div class="sg-items">
+            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">VS Code</span>
+            <span class="skill-pill">Jupyter Notebook</span>
+            <span class="skill-pill">Postman</span>
+            <span class="skill-pill">PythonAnywhere</span>
+            <span class="skill-pill">Render</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-label">/ EDUCATION</div>
+      <h2 class="section-title">Academic Background</h2>
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-body">
+            <div class="edu-year">2024 – 2026</div>
+            <h3>Master of Computer Applications (MCA)</h3>
+            <div class="edu-inst">PES University, Bangalore — Ring Road Campus</div>
+            <div class="edu-detail">Current SGPA: 6.0 (Sem 1) · Targeting 8.5+ from Sem 2</div>
+            <div class="edu-courses">Algorithms Analysis &amp; Design · AI &amp; ML · Scalable Data Processing · Web Application Frameworks · Data Communication &amp; Networking</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-body">
+            <div class="edu-year">2021 – 2024</div>
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+            <div class="edu-inst">Amrita Vishwa Vidyapeetham, Mysore — 570026</div>
+            <div class="edu-detail">CGPA: 7.3 / 10</div>
+            <div class="edu-courses">Final year project → Published in MethodsX (Elsevier) — indexed on PubMed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="achievements">
+        <h3 class="ach-title">Achievements</h3>
+        <div class="ach-grid">
+          <div class="ach-card">
+            <span class="ach-icon">🏆</span>
+            <p>HackWithInfy 2026 participant — Infosys national coding competition (App ID: INF-A59446096). Open to MCA students graduating 2027.</p>
+          </div>
+          <div class="ach-card">
+            <span class="ach-icon">📄</span>
+            <p>Co-authored peer-reviewed paper indexed on PubMed at undergraduate level. Available at pubmed.ncbi.nlm.nih.gov/40395929</p>
+          </div>
+          <div class="ach-card">
+            <span class="ach-icon">💻</span>
+            <p>Actively practicing Data Structures &amp; Algorithms on LeetCode — targeting 250+ problems before placement season.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <div class="section-label light">/ CONTACT</div>
+      <h2 class="section-title light">Let's Connect</h2>
+      <p class="contact-sub">Open to Software Engineer · ML Engineer · Python Backend Developer roles</p>
+      <div class="contact-cards">
+        <a href="mailto:gbabhi125@gmail.com" class="contact-card">
+          <span class="cc-icon">✉</span>
+          <span class="cc-label">Email</span>
+          <span class="cc-val">gbabhi125@gmail.com</span>
+        </a>
+        <a href="tel:8792231251" class="contact-card">
+          <span class="cc-icon">📞</span>
+          <span class="cc-label">Phone</span>
+          <span class="cc-val">+91 8792231251</span>
+        </a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/40395929" target="_blank" class="contact-card">
+          <span class="cc-icon">🔬</span>
+          <span class="cc-label">Research</span>
+          <span class="cc-val">PubMed · PMID 40395929</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 GB Abhilash · Built with HTML, CSS &amp; JS · Deployed on GitHub Pages</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
