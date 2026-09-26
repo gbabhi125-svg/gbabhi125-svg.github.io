@@ -1,84 +1,69 @@
-// ===== TYPING ANIMATION =====
-const roles = [
-  'Python Developer',
-  'Machine Learning Engineer',
-  'AI Researcher',
-  'Backend Developer',
-];
+/* case-file expand/collapse */
+document.querySelectorAll('[data-case]').forEach(c=>{
+  c.querySelector('.chead').addEventListener('click',()=>{
+    const willOpen=!c.classList.contains('open');
+    document.querySelectorAll('[data-case]').forEach(x=>x.classList.remove('open'));
+    if(willOpen)c.classList.add('open');
+  });
+});
 
-let roleIndex = 0;
-let charIndex = 0;
-let deleting = false;
-const typedEl = document.getElementById('typed-role');
+const main = document.getElementById('main');
+const slides = [...document.querySelectorAll('[data-slide]')];
+const railLinks = document.querySelectorAll('.railnav a');
+const dots = document.querySelectorAll('.dotnav button');
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function type() {
-  const current = roles[roleIndex];
-  if (!deleting) {
-    typedEl.textContent = current.slice(0, ++charIndex);
-    if (charIndex === current.length) {
-      deleting = true;
-      setTimeout(type, 1800);
-      return;
-    }
-  } else {
-    typedEl.textContent = current.slice(0, --charIndex);
-    if (charIndex === 0) {
-      deleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-    }
-  }
-  setTimeout(type, deleting ? 50 : 90);
+/* which slide is active — drives the zoom-in and both nav states */
+function setActive(id){
+  slides.forEach(s=>s.classList.toggle('in-view', s.id===id || (id==='hero' && s.classList.contains('hero'))));
+  railLinks.forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+id));
+  dots.forEach(d=>d.classList.toggle('on', d.dataset.to===id));
 }
 
-type();
+if (main && 'IntersectionObserver' in window && !RM){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting && en.intersectionRatio > 0.45){
+        setActive(en.target.id || 'hero');
+      }
+    });
+  }, {root: main, threshold: [0, .45, .6, 1]});
+  slides.forEach(s=>io.observe(s));
+  setActive('hero');
+} else {
+  slides.forEach(s=>s.classList.add('in-view'));
+}
 
-// ===== NAVBAR SCROLL =====
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
+/* dot nav — jump straight to a slide, it zooms into place on arrival */
+dots.forEach(d=>{
+  d.addEventListener('click', ()=>{
+    const target = d.dataset.to === 'hero'
+      ? slides.find(s=>s.classList.contains('hero'))
+      : document.getElementById(d.dataset.to);
+    if(target) target.scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'start'});
+  });
 });
 
-// ===== MOBILE BURGER =====
-const burger = document.getElementById('burger');
-const navLinks = document.getElementById('nav-links');
-
-burger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-// close on link click
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-// ===== SCROLL REVEAL =====
-const reveals = document.querySelectorAll(
-  '.project-card, .research-card, .skill-group, .edu-item, .ach-card, .contact-card, .about-grid, .hero-stats'
-);
-
-reveals.forEach(el => el.classList.add('reveal'));
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+/* left rail links target the internal scroll container, not the window */
+railLinks.forEach(a=>{
+  a.addEventListener('click', ev=>{
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if(target){
+      ev.preventDefault();
+      target.scrollIntoView({behavior: RM ? 'auto' : 'smooth', block:'start'});
     }
   });
-}, { threshold: 0.12 });
-
-reveals.forEach(el => observer.observe(el));
-
-// ===== ACTIVE NAV LINK =====
-const sections = document.querySelectorAll('section[id]');
-const navA = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  navA.forEach(a => {
-    a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--green)' : '';
-  });
 });
+
+/* gentle cursor-reactive tilt on the hero diagnostic panel */
+const strip = document.querySelector('.stripbox');
+if (strip && !RM && matchMedia('(hover:hover)').matches){
+  strip.addEventListener('mousemove', e=>{
+    const r = strip.getBoundingClientRect();
+    const px = (e.clientX - r.left)/r.width - .5;
+    const py = (e.clientY - r.top)/r.height - .5;
+    strip.style.transform = `perspective(900px) rotateX(${(-py*3).toFixed(2)}deg) rotateY(${(px*3).toFixed(2)}deg)`;
+  });
+  strip.addEventListener('mouseleave', ()=>{ strip.style.transform=''; });
+}
