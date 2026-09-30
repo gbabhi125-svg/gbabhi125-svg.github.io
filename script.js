@@ -182,3 +182,97 @@ const sectionObs = new IntersectionObserver(entries => {
 sections.forEach(s => sectionObs.observe(s));
 
 console.log('%c GB Abhilash — Portfolio v2.0 ', 'background:#c8ff00;color:#080808;font-weight:bold;padding:8px 16px;font-family:monospace');
+
+// ── REDUCED MOTION ────────────────────────────────────────────
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ── LAPTOP MOCKUP: cycling slides + mouse tilt ─────────────────
+(function initLaptop() {
+  const slides = document.querySelectorAll('.l-slide');
+  if (slides.length) {
+    let si = 0;
+    setInterval(() => {
+      slides[si].classList.remove('active');
+      si = (si + 1) % slides.length;
+      slides[si].classList.add('active');
+    }, 3200);
+  }
+  const wrap = document.getElementById('laptopWrap'), laptop = document.getElementById('laptop');
+  if (wrap && laptop && !reducedMotion) {
+    wrap.addEventListener('mousemove', e => {
+      const r = wrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      laptop.style.transform = `rotateX(${8 - y * 14}deg) rotateY(${-16 + x * 20}deg)`;
+    });
+    wrap.addEventListener('mouseleave', () => { laptop.style.transform = 'rotateX(8deg) rotateY(-16deg)'; });
+  }
+})();
+
+// ── WEBGL PARTICLE FIELD BEHIND HERO (Three.js) ────────────────
+(function initHeroParticles() {
+  if (typeof THREE === 'undefined' || reducedMotion) return;
+  const canvas = document.getElementById('heroCanvas');
+  const heroEl = document.getElementById('hero');
+  if (!canvas || !heroEl) return;
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true }); }
+  catch (e) { return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+  camera.position.z = 18;
+
+  function size() {
+    renderer.setSize(heroEl.clientWidth, heroEl.clientHeight, false);
+    camera.aspect = heroEl.clientWidth / heroEl.clientHeight;
+    camera.updateProjectionMatrix();
+  }
+  size();
+
+  const COUNT = 1400;
+  const positions = new Float32Array(COUNT * 3);
+  for (let i = 0; i < COUNT; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 44;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 26;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 22;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const mat = new THREE.PointsMaterial({
+    color: 0xc8ff00, size: 0.07, transparent: true, opacity: 0.55,
+    blending: THREE.AdditiveBlending, depthWrite: false
+  });
+  const points = new THREE.Points(geo, mat);
+  scene.add(points);
+
+  let mx = 0, my = 0;
+  window.addEventListener('mousemove', e => {
+    mx = (e.clientX / window.innerWidth - 0.5); my = (e.clientY / window.innerHeight - 0.5);
+  });
+
+  function animate() {
+    points.rotation.y += 0.0008;
+    points.rotation.x += 0.00018;
+    camera.position.x += (mx * 3 - camera.position.x) * 0.02;
+    camera.position.y += (-my * 2 - camera.position.y) * 0.02;
+    camera.lookAt(scene.position);
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+  window.addEventListener('resize', size);
+})();
+
+// ── GSAP SCROLL CHOREOGRAPHY (progressive enhancement) ─────────
+(function initGsapReveal() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || reducedMotion) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.projects-row').forEach(row => {
+    gsap.fromTo(row.children, { y: 24 }, {
+      y: 0, duration: .7, stagger: .12, ease: 'power3.out',
+      scrollTrigger: { trigger: row, start: 'top 88%' }
+    });
+  });
+  gsap.from('.laptop-wrap', { y: 40, opacity: 0, duration: 1, ease: 'power4.out', delay: .3 });
+})();

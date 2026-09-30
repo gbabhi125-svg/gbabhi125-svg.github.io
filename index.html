@@ -48,6 +48,7 @@
 
 <!-- ── HERO ── -->
 <section id="hero">
+  <canvas id="heroCanvas" class="hero-canvas"></canvas>
   <div class="hero-marquee-top">
     <div class="marquee-track">
       <span class="marquee-item">Python</span><span class="marquee-dot"> · </span>
@@ -66,13 +67,12 @@
   </div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">Available for opportunities</div>
-    <h1 class="hero-headline reveal">
-      <span id="typewriter">Full-Stack Developer</span><br/>
-      <span class="outline">GB Abhilash</span>
-    </h1>
-
-    <div class="hero-sub-row">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span class="dot"></span>Available for opportunities</div>
+      <h1 class="hero-headline reveal">
+        <span id="typewriter">Full-Stack Developer</span><br/>
+        <span class="outline">GB Abhilash</span>
+      </h1>
       <p class="hero-desc reveal">
         I build <strong>AI-powered systems</strong> end to end — from raw data pipelines to deployed
         full-stack applications. Final-year MCA @ PES University. <strong>PubMed-indexed author</strong>
@@ -80,7 +80,7 @@
       </p>
       <div class="hero-stats-row reveal">
         <div class="hstat">
-          <div class="hstat-num" data-count="3">3</div>
+          <div class="hstat-num" data-count="4">4</div>
           <div class="hstat-label">AI Systems</div>
         </div>
         <div class="hstat">
@@ -92,11 +92,48 @@
           <div class="hstat-label">Best R² Score</div>
         </div>
       </div>
+      <div class="hero-cta-row reveal">
+        <a href="#projects" class="btn-lime">View Work</a>
+        <a href="mailto:gbabhi125@gmail.com" class="btn-ghost">Get In Touch</a>
+      </div>
     </div>
 
-    <div class="hero-cta-row reveal">
-      <a href="#projects" class="btn-lime">View Work</a>
-      <a href="mailto:gbabhi125@gmail.com" class="btn-ghost">Get In Touch</a>
+    <div class="laptop-wrap reveal-right" id="laptopWrap">
+      <div class="laptop" id="laptop">
+        <div class="laptop-screen">
+          <div class="laptop-cam"></div>
+          <div class="laptop-topbar">
+            <span class="ldot r"></span><span class="ldot y"></span><span class="ldot g"></span>
+            <span class="laptop-url">gbabhi125-svg.github.io</span>
+          </div>
+          <div class="laptop-slides">
+            <div class="l-slide active" data-slide="0">
+              <div class="l-tag">// About</div>
+              <div class="l-bar" style="width:70%"></div>
+              <div class="l-bar" style="width:45%"></div>
+              <div class="l-bar lime" style="width:55%"></div>
+              <div class="l-row" style="margin-top:6px"><div class="l-chip"></div><div class="l-chip"></div></div>
+            </div>
+            <div class="l-slide" data-slide="1">
+              <div class="l-tag">// Published Paper</div>
+              <div class="l-card">
+                <div class="l-bar lime" style="width:80%"></div>
+                <div class="l-bar" style="width:60%"></div>
+                <div class="l-bar" style="width:40%"></div>
+              </div>
+              <div class="l-bar" style="width:50%;margin-top:4px"></div>
+            </div>
+            <div class="l-slide" data-slide="2">
+              <div class="l-tag">// Projects · 04</div>
+              <div class="l-row"><div class="l-chip"></div><div class="l-chip"></div><div class="l-chip"></div></div>
+              <div class="l-bar lime" style="width:65%;margin-top:4px"></div>
+              <div class="l-bar" style="width:35%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+      </div>
+      <div class="laptop-caption">This portfolio, live in 3D</div>
     </div>
   </div>
 
@@ -115,20 +152,15 @@
       I build,<br/>
       <span>I ship.</span>
     </h2>
-    <p class="about-para reveal">
-      I am most comfortable in the part of a system that decides <strong>why something broke</strong> —
-      diagnosing root cause rather than patching the symptom, and proving a fix works before calling it done.
-    </p>
-    <p class="about-para reveal">
-      That instinct carried a peer-reviewed paper through as an undergraduate, and most recently built
-      a <strong>distributed multi-agent engine</strong> that diagnoses and repairs failing LLM agents in real time,
-      evaluated against an ICML 2025 benchmark.
-    </p>
+    <p class="about-para reveal"><strong>Diagnose</strong> — I chase the root cause of a failure instead of patching the symptom, and I don't call something fixed until I've proven it under load.</p>
+    <p class="about-para reveal"><strong>Build</strong> — full systems, not slides: data pipelines, trained models, APIs, and the dashboards that put them in front of a real user.</p>
+    <p class="about-para reveal"><strong>Ship</strong> — meaning it runs somewhere I don't control the demo: a paper that made it through peer review, a multi-agent engine deployed across two machines, a platform serving 236K real agricultural records. If it only works on my laptop, it isn't shipped yet.</p>
     <div class="pub-box reveal">
       <div class="pub-icon-big">📄</div>
       <div>
         <div class="pub-title">Parkinson's Disease Detection using InceptionV3</div>
         <div class="pub-detail">MethodsX · Elsevier · Vol.14 · April 2025 · PMID 40395929</div>
+        <a href="https://share.google/2bjeFLCHBz6uNBDcw" target="_blank" class="pub-link">Read Published Paper ↗</a>
       </div>
     </div>
   </div>
@@ -155,7 +187,7 @@
       <div class="sec-tag-sm">Projects</div>
       <h2 class="section-title reveal">Selected Work</h2>
     </div>
-    <div class="section-count reveal">03</div>
+    <div class="section-count reveal">04</div>
   </div>
 
   <!-- AASE — Featured -->
@@ -183,7 +215,7 @@
     </div>
 
     <div class="project-info">
-      <div class="proj-num">01 / 03</div>
+      <div class="proj-num">01 / 04</div>
       <div class="proj-type">// Agentic AI · Multi-Agent System</div>
       <div class="proj-name">AASE</div>
       <div class="proj-sub">Agent Autopsy & Self-Evolution Engine</div>
@@ -227,12 +259,12 @@
     </div>
   </div>
 
-  <!-- Grid: AgroSentinel + Vigilance -->
+  <!-- Grid: AgroSentinel + Vigilance + REACH -->
   <div class="projects-row">
 
     <!-- AgroSentinel -->
     <div class="project-card-sm reveal-left">
-      <div class="card-num">02 / 03</div>
+      <div class="card-num">02 / 04</div>
       <div class="card-type">// ML · Full-Stack · Python</div>
       <div class="card-name">AgroSentinel India</div>
       <div class="card-sub">Agricultural Risk Intelligence Platform</div>
@@ -265,34 +297,81 @@
       </div>
     </div>
 
-    <!-- Vigilance AI -->
-    <div class="project-card-sm reveal-right">
-      <div class="card-num">03 / 03</div>
-      <div class="card-type">// Cybersecurity · Hackathon · SocGen</div>
+    <!-- Vigilance AI (upgraded with UEBA identity-risk modules) -->
+    <div class="project-card-sm reveal">
+      <span class="status-badge upgraded">Upgraded</span>
+      <div class="card-num">03 / 04</div>
+      <div class="card-type">// Cybersecurity · Identity & Access · UEBA</div>
       <div class="card-name">Vigilance AI</div>
-      <div class="card-sub">Identity Blast-Radius Engine · Société Générale</div>
+      <div class="card-sub">Identity Risk & Blast-Radius Intelligence Engine</div>
       <div class="card-metrics">
         <div class="cm">
-          <div class="cm-val" data-count="600">600</div>
+          <div class="cm-val" data-count="10000">10K</div>
           <div class="cm-lbl">Identities</div>
         </div>
         <div class="cm">
-          <div class="cm-val">5</div>
-          <div class="cm-lbl">Enterprise Systems</div>
+          <div class="cm-val" data-count="15">15</div>
+          <div class="cm-lbl">ML Modules</div>
+        </div>
+        <div class="cm">
+          <div class="cm-val" data-count="0.693" data-dec="3">0.693</div>
+          <div class="cm-lbl">Blast-Radius Corr.</div>
         </div>
       </div>
       <div class="card-desc">
-        Risk-scoring engine across AD, AWS IAM, Okta, Salesforce & GCP.
-        Breach-impact simulator with blast radius & lateral-movement paths.
-        D3.js force-directed privilege graph, K-means clustering, NIST/GDPR compliance mapping.
+        Started as a Société Générale hackathon build scoring blast radius across AD, AWS IAM, Okta,
+        Salesforce & GCP. Upgraded since into a full identity-risk engine — 15 interlocking modules
+        spanning anomaly detection, risk classification, unsupervised clustering, temporal trend
+        tracking, counterfactual risk reduction, and GDPR/NIST compliance mapping across 10,000 identities.
       </div>
       <div class="card-stack">
         <span class="stag">Python</span><span class="stag">Flask</span>
-        <span class="stag">D3.js</span><span class="stag">K-Means</span>
-        <span class="stag">NIST</span><span class="stag">GDPR</span>
+        <span class="stag">D3.js</span><span class="stag">scikit-learn</span>
+        <span class="stag">NetworkX</span><span class="stag">SHAP</span>
       </div>
       <div class="proj-links">
         <a href="https://github.com/gbabhi125-svg/vigilance-ai" target="_blank" class="plink">↗ GitHub</a>
+      </div>
+    </div>
+
+    <!-- REACH -->
+    <div class="project-card-sm reveal-right">
+      <span class="status-badge new">New</span>
+      <div class="card-num">04 / 04</div>
+      <div class="card-type">// Full-Stack · Social Impact · Waste-Tech</div>
+      <div class="card-name">REACH</div>
+      <div class="card-sub">Fair-Price Platform for Informal Waste Collection</div>
+      <div class="card-metrics">
+        <div class="cm">
+          <div class="cm-val">4</div>
+          <div class="cm-lbl">Material Tiers</div>
+        </div>
+        <div class="cm">
+          <div class="cm-val">2</div>
+          <div class="cm-lbl">GST Slabs</div>
+        </div>
+        <div class="cm">
+          <div class="cm-val">Live</div>
+          <div class="cm-lbl">Pricing Engine</div>
+        </div>
+      </div>
+      <div class="card-desc">
+        A pricing and quota platform that connects waste pickers and kabadiwalas directly
+        to corporate and municipal buyers, replacing exploitative middleman pricing with transparent,
+        auditable rates. A <strong>pricing service</strong> computes real-time per-kg rates across
+        plastic, metal, paper and e-waste, calibrated against city-level reference data. A
+        <strong>quota engine</strong> tracks weight thresholds per material and routes surplus to the
+        right buyer — bulk recycler vs. local dealer — instead of just the nearest one. Invoicing is
+        <strong>GST-slab aware</strong>, reflecting the September 2025 revision (18% on metal/plastic/rubber
+        scrap, 5% on paper). Built to give informal collectors a documented transaction history they
+        can eventually use for microloans or insurance eligibility.
+      </div>
+      <div class="card-stack">
+        <span class="stag">Python</span><span class="stag">Flask</span>
+        <span class="stag">PostgreSQL</span><span class="stag">REST API</span>
+      </div>
+      <div class="proj-links">
+        <span class="plink disabled">Private repo — on request</span>
       </div>
     </div>
   </div>
@@ -394,7 +473,7 @@
       <div class="edu-degree">Master of Computer Applications</div>
       <div class="edu-school">PES University, Bengaluru</div>
       <div class="edu-detail">
-        SGPA 6.5 (Sem 1) · Algorithm Design & Analysis · AI & ML ·
+        Algorithm Design & Analysis · AI & ML ·
         Scalable Data Processing · Web Application Frameworks ·
         NLP · Computer Vision · Deep Learning & Intelligent Systems
       </div>
@@ -405,7 +484,7 @@
       <div class="edu-degree">Bachelor of Computer Applications</div>
       <div class="edu-school">Amrita Vishwa Vidyapeetham, Mysore</div>
       <div class="edu-detail">
-        CGPA 7.3/10 · Final-year research extended into a
+        Final-year research extended into a
         PubMed-indexed publication in MethodsX (Elsevier, April 2025) —
         one of the very few undergraduates to achieve this.
       </div>
@@ -437,6 +516,9 @@
   <div class="footer-r">Mysore / Bangalore · PES University MCA</div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
